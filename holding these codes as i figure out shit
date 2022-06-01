@@ -1,0 +1,44 @@
+    
+        private Button button;
+    
+            button = (Button) findViewById(R.id.button2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHome();
+            }
+    
+    
+    public void openHome(){
+            Intent intent = new Intent(this, Home.class);
+                    startActivity(intent);
+        }
+    }
+    
+    ------------------------------------------------------------------------------------------------
+    
+    
+            edittextEmailAddress.addTextChangedListener(logintextwatcher);
+        edittextPassword.addTextChangedListener(logintextwatcher);
+        
+        
+           private TextWatcher logintextwatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String emailInput = edittextEmailAddress.getEditableText().toString().trim();
+            String passwordInput = edittextPassword.getEditableText().toString().trim();
+
+            button3.setEnabled(!emailInput.isEmpty() && !passwordInput.isEmpty());
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
